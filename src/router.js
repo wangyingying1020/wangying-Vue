@@ -5,6 +5,7 @@ import homInfoSwiper from "./components/indexswipe.vue";
 import member from "./components/member.vue";
 import shopcar from "./components/shopcar.vue";
 import search from "./components/search.vue";
+import newlist from "./components/newlist/newlist.vue";
 
 const router = new VueRouter({
     routes: [
@@ -13,6 +14,7 @@ const router = new VueRouter({
         { path: "/member", component: member },
         { path: "/shopcar", component: shopcar },
         { path: "/search", component: search },
+        { path: "/home/newlist", component: newlist },
 
 
     ],

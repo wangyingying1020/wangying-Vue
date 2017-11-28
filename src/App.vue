@@ -4,7 +4,12 @@
     <mt-header fixed title="模拟京东"></mt-header>
     
      <!-- 挖一个坑 -->
-		 <router-view></router-view>
+	
+			<transition>
+				<router-view></router-view>
+			</transition>
+			 
+	
    
 
   <!-- tab bar区域 -->
@@ -49,9 +54,20 @@
 </script>
 <style lang="scss" scoped>
 	.homeInfo{
-	
-	
-
+			overflow-x: hidden;
+			padding-top: 40px;
 	}
-
+.v-enter {
+	opacity: 0;
+	transform: translateX(100%)
+}
+.v-leave-to{
+	opacity: 0;
+	transform: translateX(-100%);
+	position: absolute;
+}
+.v-leave-active,.v-enter-active{
+	
+	transition: all 0.5s ease;
+}
 </style>

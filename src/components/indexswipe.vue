@@ -11,9 +11,9 @@
 
      <!-- 六宫格区域 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newlist">
                 <img src="../images/menu1.png" alt="">
-                <div class="mui-media-body">新闻资讯</div></a></li>
+                <div class="mui-media-body">新闻资讯</div></router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../images/menu2.png" alt="">
                 <div class="mui-media-body">图片分享</div></a></li>
@@ -71,7 +71,6 @@
     	// 轮播图区域的样式
 		  .mint-swipe{
             height: 300px;
-            padding-top: 40px;
             .mint-swipe-items-wrap{
                 .mint-swipe-item{
                 background: red;
