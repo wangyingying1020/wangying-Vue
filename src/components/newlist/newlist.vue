@@ -1,38 +1,42 @@
 <template>
-  <div class="newlist">
-      <div class="newlistInfo">
-          <img src="http://vue.studyit.io/upload/201504/16/201504161149414479.jpg" alt="">
+  <div  class="newlist">
+      <router-link class="newlistInfo" v-for="item in newlist" :key="item.id" :to="'/home/newlist/newlistinfo/'+item.id" tag="div">
+          <img :src="item.img_url" alt="">
           <div>
-              <h1 class="title">1季度多家房企利润跌幅超50% 去库存促销战打响</h1>
+              <h1 class="title">{{item.title}}</h1>
               <p>
-                  <span>发表时间：2015-04-16 11:50:28</span>
-                  <span>点击：1次</span>
+                  <span>发表时间：{{item.add_time}}</span>
+                  <span>点击：{{item.click}}次</span>
               </p>
           </div>
-      </div>
-       <div class="newlistInfo">
-          <img src="http://vue.studyit.io/upload/201504/16/201504161149414479.jpg" alt="">
-          <div>
-              <h1 class="title">1季度多家房企利润跌幅超50% 去库存促销战打响</h1>
-              <p>
-                  <span>发表时间：2015-04-16 11:50:28</span>
-                  <span>点击：1次</span>
-              </p>
-          </div>
-      </div>
-       <div class="newlistInfo">
-          <img src="http://vue.studyit.io/upload/201504/16/201504161149414479.jpg" alt="">
-          <div>
-              <h1 class="title">1季度多家房企利润跌幅超50% 去库存促销战打响</h1>
-              <p>
-                  <span>发表时间：2015-04-16 11:50:28</span>
-                  <span>点击：1次</span>
-              </p>
-          </div>
-      </div>
+      </router-link>
+      
   </div>
 </template>
 <script>
+import { Toast } from 'mint-ui';
+export default{
+    data(){
+        return{
+            newlist:[]
+        }
+    },
+    created(){
+        this.getnewlist();
+    },
+    methods:{
+        getnewlist(){
+            this.$http.get("api/getnewslist").then((rep)=>{
+                console.log(rep);
+                if(rep.body.status===0){
+                    this.newlist=rep.body.message;
+                }else{
+                    Toast("新闻列表数据获取失败");
+                }
+            })
+        }
+    }
+}
     
 </script>
 <style lang="scss" scoped>
@@ -53,6 +57,7 @@
             p{
                 display: flex;
                 justify-content: space-between;
+                padding: 3px;
                 span{
                     font-size:13px;
                     color:darkgrey;

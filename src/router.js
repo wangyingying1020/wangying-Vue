@@ -6,6 +6,7 @@ import member from "./components/member.vue";
 import shopcar from "./components/shopcar.vue";
 import search from "./components/search.vue";
 import newlist from "./components/newlist/newlist.vue";
+import newlistInfo from "./components/newlist/newlistinfo.vue";
 
 const router = new VueRouter({
     routes: [
@@ -15,6 +16,7 @@ const router = new VueRouter({
         { path: "/shopcar", component: shopcar },
         { path: "/search", component: search },
         { path: "/home/newlist", component: newlist },
+        { path: "/home/newlist/newlistinfo/:id", component: newlistInfo }
 
 
     ],
